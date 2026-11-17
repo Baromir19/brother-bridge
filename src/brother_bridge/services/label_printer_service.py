@@ -25,7 +25,7 @@ class LabelPrinterService:
     Args:
         template_dir: Directory that holds the ``.lbx`` templates.
         document_factory: Callable returning a :class:`LabelDocument`. Defaults
-            to :func:`lbx_printer.managers.document_factory`, which selects the
+            to :func:`brother_bridge.managers.document_factory`, which selects the
             implementation for the current platform.
 
     Example:

@@ -9,8 +9,8 @@ from typing import cast
 import pytest
 from PIL import Image
 
-from lbx_printer.exceptions import MissingDependencyError
-from lbx_printer.printers import (
+from brother_bridge.exceptions import MissingDependencyError
+from brother_bridge.printers import (
     BrotherQlRasterBackend,
     CupsPngBackend,
     FileBackend,

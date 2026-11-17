@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 from PIL import ImageFont
 
-from lbx_printer.lbx.fonts import DEFAULT_SUBSTITUTIONS, FontResolver, _normalize
+from brother_bridge.lbx.fonts import DEFAULT_SUBSTITUTIONS, FontResolver, _normalize
 
 pytestmark = pytest.mark.unit
 

@@ -25,8 +25,8 @@ from .label_document import LabelDocument
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_JOB_NAME = "lbx-printer"
-_MISSING_HINT = "Install the pywin32 package: pip install 'lbx-printer[windows]'."
+DEFAULT_JOB_NAME = "brother-bridge"
+_MISSING_HINT = "Install the pywin32 package: pip install 'brother-bridge[windows]'."
 
 
 class BpacDocument(LabelDocument):

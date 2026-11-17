@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from lbx_printer.lbx.model import PaperSpec
-from lbx_printer.printers.label_resolver import (
+from brother_bridge.lbx.model import PaperSpec
+from brother_bridge.printers.label_resolver import (
     MAX_DISTANCE_MM,
     BrotherQlLabelResolver,
     UnsupportedLabelError,

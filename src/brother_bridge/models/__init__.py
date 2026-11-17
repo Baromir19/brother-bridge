@@ -1,4 +1,4 @@
-"""Public data models of :mod:`lbx_printer`."""
+"""Public data models of :mod:`brother_bridge`."""
 
 from .label_data import LabelData
 from .label_template import LabelTemplate

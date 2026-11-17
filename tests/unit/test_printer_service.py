@@ -7,14 +7,14 @@ from typing import ClassVar
 
 import pytest
 
-from lbx_printer.exceptions import (
+from brother_bridge.exceptions import (
     LabelDataMissingError,
     LabelTemplateNotFoundError,
     PrinterStateError,
 )
-from lbx_printer.managers.label_document import LabelDocument
-from lbx_printer.models import LabelData, LabelTemplate, PrintRequest
-from lbx_printer.services import LabelPrinterService
+from brother_bridge.managers.label_document import LabelDocument
+from brother_bridge.models import LabelData, LabelTemplate, PrintRequest
+from brother_bridge.services import LabelPrinterService
 
 pytestmark = pytest.mark.unit
 

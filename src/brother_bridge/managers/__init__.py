@@ -2,10 +2,10 @@
 
 :func:`document_factory` selects an implementation for the current platform:
 
-* Windows: :class:`~lbx_printer.managers.bpac_document.BpacDocument`, which
+* Windows: :class:`~brother_bridge.managers.bpac_document.BpacDocument`, which
   drives the native Brother b-PAC COM SDK.
 * Linux and macOS:
-  :class:`~lbx_printer.managers.linux_brother_document.LinuxBrotherDocument`,
+  :class:`~brother_bridge.managers.linux_brother_document.LinuxBrotherDocument`,
   which renders the template in memory and sends raster data directly.
 
 Imports of the concrete classes are deferred to the factory so that no COM

@@ -6,7 +6,7 @@ records stay in English because they target developers and operators.
 The active locale is resolved from, in order:
 
 1. :func:`set_locale`,
-2. the ``LBX_PRINTER_LOCALE`` environment variable,
+2. the ``BROTHER_BRIDGE_LOCALE`` environment variable,
 3. :data:`DEFAULT_LOCALE`.
 
 Unknown locales fall back to English, so a caller can never end up without a
@@ -19,7 +19,7 @@ import os
 from typing import Any
 
 DEFAULT_LOCALE = "en"
-LOCALE_ENVIRONMENT_VARIABLE = "LBX_PRINTER_LOCALE"
+LOCALE_ENVIRONMENT_VARIABLE = "BROTHER_BRIDGE_LOCALE"
 
 _MESSAGES: dict[str, dict[str, str]] = {
     "en": {

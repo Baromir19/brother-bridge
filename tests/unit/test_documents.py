@@ -7,21 +7,21 @@ from pathlib import Path
 import pytest
 from PIL import Image
 
-from lbx_printer.config import PrinterConfig
-from lbx_printer.exceptions import (
+from brother_bridge.config import PrinterConfig
+from brother_bridge.exceptions import (
     LabelFieldNotFoundError,
     LabelTemplateNotFoundError,
     PrinterStateError,
 )
-from lbx_printer.lbx.parser import LbxParser
-from lbx_printer.managers import LabelDocument, document_factory
-from lbx_printer.managers.bpac_document import BpacDocument
-from lbx_printer.managers.linux_brother_document import (
+from brother_bridge.lbx.parser import LbxParser
+from brother_bridge.managers import LabelDocument, document_factory
+from brother_bridge.managers.bpac_document import BpacDocument
+from brother_bridge.managers.linux_brother_document import (
     LinuxBrotherDocument,
     TapeSpec,
     default_tape_spec,
 )
-from lbx_printer.printers.backend import PrinterBackend
+from brother_bridge.printers.backend import PrinterBackend
 
 from ..conftest import image_object, text_object
 

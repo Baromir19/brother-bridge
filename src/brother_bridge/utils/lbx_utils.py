@@ -9,7 +9,7 @@ from ..lbx.parser import LbxParser
 
 
 class LbxUtils:
-    """Static helpers around :class:`~lbx_printer.lbx.parser.LbxParser`."""
+    """Static helpers around :class:`~brother_bridge.lbx.parser.LbxParser`."""
 
     @staticmethod
     def extract_fields(path: str | Path, *, text_only: bool = False) -> list[str]:

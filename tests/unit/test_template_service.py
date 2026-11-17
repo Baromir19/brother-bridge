@@ -7,11 +7,11 @@ from pathlib import Path
 
 import pytest
 
-from lbx_printer.exceptions import (
+from brother_bridge.exceptions import (
     LabelAlreadyExistsError,
     LabelTemplateNotFoundError,
 )
-from lbx_printer.services import LabelTemplateService
+from brother_bridge.services import LabelTemplateService
 
 pytestmark = pytest.mark.unit
 

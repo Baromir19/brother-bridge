@@ -6,7 +6,7 @@ import logging
 
 import pytest
 
-from lbx_printer.logging import (
+from brother_bridge.logging import (
     PACKAGE_LOGGER_NAME,
     configure_logging,
     get_logger,
@@ -39,8 +39,8 @@ def test_package_logger_is_silent_by_default() -> None:
 
 
 def test_get_logger_prefixes_child_loggers() -> None:
-    assert get_logger("lbx_printer.lbx.parser").name == "lbx_printer.lbx.parser"
-    assert get_logger("lbx.writer").name == "lbx_printer.lbx.writer"
+    assert get_logger("brother_bridge.lbx.parser").name == "brother_bridge.lbx.parser"
+    assert get_logger("lbx.writer").name == "brother_bridge.lbx.writer"
     assert get_logger("").name == PACKAGE_LOGGER_NAME
 
 
@@ -63,6 +63,6 @@ def test_configure_logging_installs_one_stream_handler(capsys) -> None:
 
 
 def test_logger_hierarchy_keeps_child_levels() -> None:
-    logger = get_logger("lbx_printer.services")
+    logger = get_logger("brother_bridge.services")
 
     assert logger.parent is logging.getLogger(PACKAGE_LOGGER_NAME)

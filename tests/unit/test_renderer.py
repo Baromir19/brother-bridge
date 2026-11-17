@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 from PIL import Image, ImageDraw, ImageOps
 
-from lbx_printer.lbx.fonts import FontResolver
-from lbx_printer.lbx.model import FontSpec, LabelLayout, PaperSpec, Run, TextObject
-from lbx_printer.lbx.parser import LbxParser
-from lbx_printer.lbx.renderer import LbxRenderer, _pt_to_px
+from brother_bridge.lbx.fonts import FontResolver
+from brother_bridge.lbx.model import FontSpec, LabelLayout, PaperSpec, Run, TextObject
+from brother_bridge.lbx.parser import LbxParser
+from brother_bridge.lbx.renderer import LbxRenderer, _pt_to_px
 
 from ..conftest import text_object
 

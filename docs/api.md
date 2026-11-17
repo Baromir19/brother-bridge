@@ -242,11 +242,11 @@ class LbxUtils:
     def read_paper(path) -> PaperSpec: ...
 ```
 
-### `lbx_printer.logging`
+### `brother_bridge.logging`
 
 `get_logger(name)` and `configure_logging(level, stream, fmt)`.
 
-### `lbx_printer.i18n`
+### `brother_bridge.i18n`
 
 `translate(key, **values)`, `set_locale(code)`, `get_locale()`,
 `available_locales()`, `DEFAULT_LOCALE`, `LOCALE_ENVIRONMENT_VARIABLE`.

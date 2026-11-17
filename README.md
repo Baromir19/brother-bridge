@@ -1,4 +1,4 @@
-# lbx-printer
+# brother-bridge
 
 Parse, fill and print Brother P-touch (`.lbx`) label templates from Python.
 
@@ -11,7 +11,7 @@ same code path is used for previews, tests and production printing.
 ```python
 from pathlib import Path
 
-from lbx_printer import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
+from brother_bridge import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
 
 request = PrintRequest(
     label=LabelTemplate("address", "address.lbx", ("title", "address")),
@@ -53,10 +53,10 @@ Rendering, parsing and previews work on every platform with just Pillow;
 ## Installation
 
 ```bash
-pip install lbx-printer            # core: parse and render
-pip install "lbx-printer[brother]" # Linux/macOS raster printing
-pip install "lbx-printer[windows]" # Windows b-PAC printing (pywin32)
-pip install "lbx-printer[all]"     # everything
+pip install brother-bridge            # core: parse and render
+pip install "brother-bridge[brother]" # Linux/macOS raster printing
+pip install "brother-bridge[windows]" # Windows b-PAC printing (pywin32)
+pip install "brother-bridge[all]"     # everything
 ```
 
 The `brother` extra installs the `brother_ql` release available on PyPI. Models
@@ -65,7 +65,7 @@ upstream build, so install it before the package:
 
 ```bash
 pip install "brother-ql @ git+https://github.com/pklaus/brother_ql.git"
-pip install lbx-printer
+pip install brother-bridge
 ```
 
 Windows printing does not need `brother_ql` at all.
@@ -87,7 +87,7 @@ pip install -e ".[all,dev]"
 ```python
 from pathlib import Path
 
-from lbx_printer import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
+from brother_bridge import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
 
 service = LabelPrinterService(Path("templates"))
 request = PrintRequest(
@@ -113,7 +113,7 @@ service.print_label(request)
 ```python
 from pathlib import Path
 
-from lbx_printer import FileBackend, LbxParser, LbxRenderer
+from brother_bridge import FileBackend, LbxParser, LbxRenderer
 
 layout = LbxParser().parse_file(Path("templates/address.lbx"))
 layout.text_objects["title"].set_text("Ada Lovelace")
@@ -126,7 +126,7 @@ FileBackend(Path("output")).print(image, printer="", copies=1)
 ### Drive a platform document directly
 
 ```python
-from lbx_printer import PrinterConfig, document_factory
+from brother_bridge import PrinterConfig, document_factory
 
 config = PrinterConfig(host="192.168.1.50", model="QL-1110NWB")
 with document_factory(config) as document:
@@ -143,21 +143,21 @@ later at print time.
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
-| `LBX_PRINTER_HOST` | `10.10.4.44` | Printer address for the raster backend |
-| `LBX_PRINTER_MODEL` | `QL-1110NWB` | Model name understood by `brother_ql` |
-| `LBX_PRINTER_LABEL` | auto | Explicit tape identifier; empty means auto-detect |
-| `LBX_PRINTER_PORT` | `9100` | Raw TCP port |
-| `LBX_PRINTER_CUT` | `true` | Cut after each copy |
-| `LBX_PRINTER_THRESHOLD` | `70` | Black/white threshold in percent |
-| `LBX_PRINTER_DITHER` | `false` | Dither instead of thresholding |
-| `LBX_PRINTER_DPI` | `300` | Rendering resolution |
-| `LBX_PRINTER_TEMPLATE_DIR` | unset | Default template directory |
-| `LBX_PRINTER_LOCALE` | `en` | Locale of exception messages (`en`, `fr`) |
+| `BROTHER_BRIDGE_HOST` | `10.10.4.44` | Printer address for the raster backend |
+| `BROTHER_BRIDGE_MODEL` | `QL-1110NWB` | Model name understood by `brother_ql` |
+| `BROTHER_BRIDGE_LABEL` | auto | Explicit tape identifier; empty means auto-detect |
+| `BROTHER_BRIDGE_PORT` | `9100` | Raw TCP port |
+| `BROTHER_BRIDGE_CUT` | `true` | Cut after each copy |
+| `BROTHER_BRIDGE_THRESHOLD` | `70` | Black/white threshold in percent |
+| `BROTHER_BRIDGE_DITHER` | `false` | Dither instead of thresholding |
+| `BROTHER_BRIDGE_DPI` | `300` | Rendering resolution |
+| `BROTHER_BRIDGE_TEMPLATE_DIR` | unset | Default template directory |
+| `BROTHER_BRIDGE_LOCALE` | `en` | Locale of exception messages (`en`, `fr`) |
 
 ## Public API
 
 The stable surface is exported from the package root and listed in
-`lbx_printer.__all__`:
+`brother_bridge.__all__`:
 
 - Models: `LabelTemplate`, `LabelData`, `PrintRequest`, `PrintMode`
 - Pipeline: `LbxParser`, `LbxRenderer`, `FontResolver`, `LabelLayout`,
@@ -204,12 +204,12 @@ All package exceptions derive from `PrinterError`. Messages are translated
 The package never configures the root logger. Add a handler when needed:
 
 ```python
-from lbx_printer.logging import configure_logging
+from brother_bridge.logging import configure_logging
 
 configure_logging("DEBUG")
 ```
 
-Set `LBX_PRINTER_LOCALE=fr` (or call `lbx_printer.i18n.set_locale("fr")`) to
+Set `BROTHER_BRIDGE_LOCALE=fr` (or call `brother_bridge.i18n.set_locale("fr")`) to
 localise exception messages.
 
 ## Thread safety
@@ -232,7 +232,7 @@ COM apartment-bound. Do not share a document between threads.
 ## Versioning
 
 The package follows [Semantic Versioning](https://semver.org/). The public API is
-the set of names exported from `lbx_printer`; everything else (module-internal
+the set of names exported from `brother_bridge`; everything else (module-internal
 helpers prefixed with `_`) may change in a minor release. Deprecations are
 introduced with a warning and removed only in the next major version.
 

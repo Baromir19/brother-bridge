@@ -2,7 +2,7 @@
 
 A ``.lbx`` file is a ZIP archive whose ``label.xml`` entry describes the paper,
 the objects and their formatting. :class:`LbxParser` turns that XML into an
-in-memory :class:`~lbx_printer.lbx.model.LabelLayout` without touching the
+in-memory :class:`~brother_bridge.lbx.model.LabelLayout` without touching the
 filesystem, so it can parse bytes, an open file or a network payload alike.
 
 The parser is stateless and safe to share between threads.

@@ -7,7 +7,7 @@ Brother templates reference font families such as ``Atlanta`` or
 1. exact family match in the system font directories,
 2. a configurable substitution table (Brother family to candidates),
 3. a partial match against the indexed family names,
-4. a font shipped in ``lbx_printer/resources/fonts``,
+4. a font shipped in ``brother_bridge/resources/fonts``,
 5. the scalable default font of Pillow.
 
 Resolved fonts are cached per ``(family, bold, italic, size)`` so that repeated

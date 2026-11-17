@@ -2,11 +2,11 @@
 
 Available backends:
 
-* :class:`~lbx_printer.printers.cups_png.CupsPngBackend` - PNG over
+* :class:`~brother_bridge.printers.cups_png.CupsPngBackend` - PNG over
   ``lp`` stdin, no temporary files.
-* :class:`~lbx_printer.printers.brother_ql_raster.BrotherQlRasterBackend` -
+* :class:`~brother_bridge.printers.brother_ql_raster.BrotherQlRasterBackend` -
   raw Brother raster data over TCP, no CUPS or driver required.
-* :class:`~lbx_printer.printers.file_backend.FileBackend` - writes image files,
+* :class:`~brother_bridge.printers.file_backend.FileBackend` - writes image files,
   useful for previews, tests and hardware-free debugging.
 """
 

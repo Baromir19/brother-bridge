@@ -1,6 +1,6 @@
 """Logging helpers.
 
-Importing :mod:`lbx_printer` never touches the root logger configuration: the
+Importing :mod:`brother_bridge` never touches the root logger configuration: the
 package logger only carries a :class:`logging.NullHandler`, so applications keep
 full control over handlers, formatters and levels. Call
 :func:`configure_logging` for a ready-made setup in scripts and examples.
@@ -12,7 +12,7 @@ import logging
 import sys
 from typing import IO
 
-PACKAGE_LOGGER_NAME = "lbx_printer"
+PACKAGE_LOGGER_NAME = "brother_bridge"
 
 DEFAULT_FORMAT = "%(asctime)s %(levelname)-8s %(name)s | %(message)s"
 
@@ -45,7 +45,7 @@ def configure_logging(
     The handler is installed once; repeated calls only adjust the level.
 
     Args:
-        level: Logging level for ``lbx_printer`` and its children.
+        level: Logging level for ``brother_bridge`` and its children.
         stream: Destination stream. Defaults to :data:`sys.stderr`.
         fmt: ``logging`` format string for the handler.
 

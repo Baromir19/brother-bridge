@@ -6,9 +6,9 @@ import os
 
 import pytest
 
-import lbx_printer
-from lbx_printer.exceptions import LabelTemplateNotFoundError
-from lbx_printer.i18n import (
+import brother_bridge
+from brother_bridge.exceptions import LabelTemplateNotFoundError
+from brother_bridge.i18n import (
     DEFAULT_LOCALE,
     LOCALE_ENVIRONMENT_VARIABLE,
     available_locales,
@@ -78,5 +78,5 @@ def test_locale_can_be_reset_to_environment_default() -> None:
 
 
 def test_public_api_exports_are_importable() -> None:
-    for name in lbx_printer.__all__:
-        assert hasattr(lbx_printer, name), f"missing public attribute: {name}"
+    for name in brother_bridge.__all__:
+        assert hasattr(brother_bridge, name), f"missing public attribute: {name}"

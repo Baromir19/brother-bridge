@@ -8,8 +8,8 @@ the project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Standalone, pip-installable distribution `lbx-printer` with a `src/` layout,
-  `py.typed` marker and a single public API exported from `lbx_printer`.
+- Standalone, pip-installable distribution `brother-bridge` with a `src/` layout,
+  `py.typed` marker and a single public API exported from `brother_bridge`.
 - In-memory `.lbx` pipeline: `LbxParser`, `LbxRenderer`, `FontResolver` and the
   layout model (`LabelLayout`, `PaperSpec`, `TextObject`, `Run`, `FontSpec`).
 - Cross-platform font discovery (Linux, macOS, Windows) with platform-aware
@@ -28,7 +28,7 @@ the project adheres to [Semantic Versioning](https://semver.org/).
   configuration instead of global state.
 - Filesystem template catalogue (`LabelTemplateService`): list, describe,
   import and delete `.lbx` templates.
-- Localised exception messages (English and French) through `lbx_printer.i18n`.
+- Localised exception messages (English and French) through `brother_bridge.i18n`.
 - Optional logging helpers that never reconfigure the root logger.
 - Unit, integration and opt-in hardware test suites; strict MyPy configuration;
   Ruff configuration; CI workflow for Linux and Windows.

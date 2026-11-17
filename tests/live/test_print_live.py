@@ -3,7 +3,7 @@
 These tests are excluded by default. Run them explicitly with hardware
 available::
 
-    LBX_PRINTER_HOST=192.168.1.50 pytest -m live
+    BROTHER_BRIDGE_HOST=192.168.1.50 pytest -m live
 
 On Windows the tests use b-PAC; on Linux and macOS they stream raster data to
 the address above. Nothing is printed when the environment variable is unset.
@@ -16,7 +16,7 @@ from pathlib import Path
 
 import pytest
 
-from lbx_printer import (
+from brother_bridge import (
     LabelData,
     LabelPrinterService,
     LabelTemplate,
@@ -25,8 +25,8 @@ from lbx_printer import (
 
 pytestmark = pytest.mark.live
 
-HOST = os.environ.get("LBX_PRINTER_HOST", "")
-MODEL = os.environ.get("LBX_PRINTER_MODEL", "QL-1110NWB")
+HOST = os.environ.get("BROTHER_BRIDGE_HOST", "")
+MODEL = os.environ.get("BROTHER_BRIDGE_MODEL", "QL-1110NWB")
 
 
 def live_template(address_lbx: Path) -> LabelTemplate:
@@ -37,16 +37,16 @@ def live_template(address_lbx: Path) -> LabelTemplate:
     )
 
 
-@pytest.mark.skipif(not HOST, reason="LBX_PRINTER_HOST is not set")
+@pytest.mark.skipif(not HOST, reason="BROTHER_BRIDGE_HOST is not set")
 def test_print_label_on_hardware(address_lbx: Path) -> None:
-    from lbx_printer.config import PrinterConfig
-    from lbx_printer.managers import document_factory
+    from brother_bridge.config import PrinterConfig
+    from brother_bridge.managers import document_factory
 
     request = PrintRequest(
         label=live_template(address_lbx),
         data=LabelData(
             {
-                "title": "lbx-printer",
+                "title": "brother-bridge",
                 "address": "Live hardware test label",
             }
         ),

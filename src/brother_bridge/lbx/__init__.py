@@ -2,11 +2,11 @@
 
 The three public entry points are:
 
-* :class:`~lbx_printer.lbx.parser.LbxParser` - archive bytes to
-  :class:`~lbx_printer.lbx.model.LabelLayout`.
-* :class:`~lbx_printer.lbx.renderer.LbxRenderer` - layout to
+* :class:`~brother_bridge.lbx.parser.LbxParser` - archive bytes to
+  :class:`~brother_bridge.lbx.model.LabelLayout`.
+* :class:`~brother_bridge.lbx.renderer.LbxRenderer` - layout to
   :class:`PIL.Image.Image`.
-* :class:`~lbx_printer.lbx.fonts.FontResolver` - template font names to
+* :class:`~brother_bridge.lbx.fonts.FontResolver` - template font names to
   available fonts.
 """
 

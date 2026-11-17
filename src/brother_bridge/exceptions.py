@@ -1,8 +1,8 @@
-"""Exception hierarchy of :mod:`lbx_printer`.
+"""Exception hierarchy of :mod:`brother_bridge`.
 
 Every error raised by the package derives from :class:`PrinterError`, so a
 single ``except PrinterError`` guard is enough to isolate label handling.
-Messages are translated through :mod:`lbx_printer.i18n`; the structured
+Messages are translated through :mod:`brother_bridge.i18n`; the structured
 attributes of each exception stay available for programmatic handling.
 """
 

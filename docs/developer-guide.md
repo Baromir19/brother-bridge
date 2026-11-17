@@ -3,8 +3,8 @@
 ## Repository layout
 
 ```text
-lbx-printer/
-├── src/lbx_printer/          # the package (src layout)
+brother-bridge/
+├── src/brother_bridge/          # the package (src layout)
 │   ├── __init__.py           # public API and __version__
 │   ├── config.py             # PrinterConfig
 │   ├── exceptions.py         # exception hierarchy
@@ -56,7 +56,7 @@ uv sync --all-extras
 | Run only unit tests | `pytest -m unit` |
 | Run only integration tests | `pytest -m integration` |
 | Run with coverage | `pytest --cov --cov-report=term-missing` |
-| Run hardware tests | `LBX_PRINTER_HOST=... pytest -m live` |
+| Run hardware tests | `BROTHER_BRIDGE_HOST=... pytest -m live` |
 | Lint | `ruff check src tests` |
 | Check formatting | `ruff format --check src tests` |
 | Apply formatting | `ruff format src tests` |
@@ -100,7 +100,7 @@ CI runs the same commands on Linux and Windows.
 ```python
 from PIL import Image
 
-from lbx_printer import PrinterBackend
+from brother_bridge import PrinterBackend
 
 
 class SpoolerBackend(PrinterBackend):
@@ -112,7 +112,7 @@ class SpoolerBackend(PrinterBackend):
 Use it by injecting it:
 
 ```python
-from lbx_printer.managers import document_factory
+from brother_bridge.managers import document_factory
 
 document_factory(backend=SpoolerBackend(), platform_name="Linux")
 ```
@@ -122,13 +122,13 @@ requirement in the class docstring.
 
 ## Adding a locale
 
-1. Add a catalogue to `_MESSAGES` in `src/lbx_printer/i18n.py`.
+1. Add a catalogue to `_MESSAGES` in `src/brother_bridge/i18n.py`.
 2. Keep the same keys as the English catalogue.
 3. Add a test that a representative message is translated.
 
 ## Versioning and release
 
-1. The version lives in `src/lbx_printer/__init__.py` and is read by Hatch, so
+1. The version lives in `src/brother_bridge/__init__.py` and is read by Hatch, so
    there is a single source of truth.
 2. Update `CHANGELOG.md` under the version being released.
 3. Run the local gate: `ruff check src tests`, `ruff format --check src tests`,
@@ -153,7 +153,7 @@ Metadata rule: PyPI rejects distributions whose `Requires-Dist` contains a
 direct URL reference. Keep `pyproject.toml` free of `pkg @ git+...` entries;
 install such builds manually and document them in the user guide instead.
 
-Semantic versioning applies to the public API exported from `lbx_printer`:
+Semantic versioning applies to the public API exported from `brother_bridge`:
 
 - **major** - removed or changed public behaviour.
 - **minor** - new public functionality, deprecations.
@@ -166,5 +166,5 @@ Semantic versioning applies to the public API exported from `lbx_printer`:
 - `brother_ql` is optional and installed from its upstream repository because
   the PyPI release does not include recent printers.
 - No third-party source code is vendored. Fonts are not redistributed; the
-  optional `src/lbx_printer/resources/fonts` directory exists for deployments
+  optional `src/brother_bridge/resources/fonts` directory exists for deployments
   that provide their own font files.

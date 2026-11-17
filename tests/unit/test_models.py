@@ -6,14 +6,14 @@ import dataclasses
 
 import pytest
 
-from lbx_printer import __version__
-from lbx_printer.exceptions import (
+from brother_bridge import __version__
+from brother_bridge.exceptions import (
     ConfigurationError,
     LabelFieldNotFoundError,
     LabelTemplateNotFoundError,
 )
-from lbx_printer.lbx.model import FontSpec, LabelLayout, PaperSpec, Run, TextObject
-from lbx_printer.models import LabelData, LabelTemplate, PrintMode, PrintRequest
+from brother_bridge.lbx.model import FontSpec, LabelLayout, PaperSpec, Run, TextObject
+from brother_bridge.models import LabelData, LabelTemplate, PrintMode, PrintRequest
 
 pytestmark = pytest.mark.unit
 

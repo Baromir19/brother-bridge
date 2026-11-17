@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 from PIL import Image, ImageOps
 
-from lbx_printer import (
+from brother_bridge import (
     FileBackend,
     LabelData,
     LabelPrinterService,
@@ -17,8 +17,8 @@ from lbx_printer import (
     LbxRenderer,
     PrintRequest,
 )
-from lbx_printer.exceptions import LabelFieldNotFoundError
-from lbx_printer.managers import document_factory
+from brother_bridge.exceptions import LabelFieldNotFoundError
+from brother_bridge.managers import document_factory
 
 pytestmark = pytest.mark.integration
 

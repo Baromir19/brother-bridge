@@ -143,7 +143,7 @@ class BarcodeObject(LabelObject):
     """Barcode object of a label.
 
     Parsed for inspection and future rendering; barcodes are not drawn by
-    :class:`~lbx_printer.lbx.renderer.LbxRenderer` yet.
+    :class:`~brother_bridge.lbx.renderer.LbxRenderer` yet.
     """
 
     object_name: str

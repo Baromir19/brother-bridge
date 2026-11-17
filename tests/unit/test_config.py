@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from lbx_printer.config import (
+from brother_bridge.config import (
     DEFAULT_DPI,
     DEFAULT_HOST,
     DEFAULT_MODEL,
@@ -19,7 +19,7 @@ from lbx_printer.config import (
     ENV_TEMPLATE_DIR,
     PrinterConfig,
 )
-from lbx_printer.exceptions import ConfigurationError
+from brother_bridge.exceptions import ConfigurationError
 
 pytestmark = pytest.mark.unit
 

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from lbx_printer.utils import LbxUtils
+from brother_bridge.utils import LbxUtils
 
 from ..conftest import barcode_object, image_object, text_object
 

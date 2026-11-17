@@ -1,6 +1,6 @@
 """Brother P-touch label printing for Python.
 
-``lbx-printer`` parses Brother ``.lbx`` templates, fills their fields and prints
+``brother-bridge`` parses Brother ``.lbx`` templates, fills their fields and prints
 them on Windows through the b-PAC COM SDK or on Linux/macOS through direct
 Brother raster output or CUPS.
 
@@ -8,7 +8,7 @@ Quick start::
 
     from pathlib import Path
 
-    from lbx_printer import (
+    from brother_bridge import (
         LabelData,
         LabelPrinterService,
         LabelTemplate,
@@ -23,16 +23,16 @@ Quick start::
 
 Low-level pipeline, without hardware::
 
-    from lbx_printer import LbxParser, LbxRenderer
+    from brother_bridge import LbxParser, LbxRenderer
 
     layout = LbxParser().parse(Path("address.lbx").read_bytes())
     layout.get_object("title").set_text("Ada Lovelace")  # type: ignore[union-attr]
     image = LbxRenderer().render(layout)
 
-Modules are organised by responsibility: :mod:`lbx_printer.lbx` for parsing and
-rendering, :mod:`lbx_printer.managers` for platform documents,
-:mod:`lbx_printer.printers` for transport backends and
-:mod:`lbx_printer.services` for application-level helpers.
+Modules are organised by responsibility: :mod:`brother_bridge.lbx` for parsing and
+rendering, :mod:`brother_bridge.managers` for platform documents,
+:mod:`brother_bridge.printers` for transport backends and
+:mod:`brother_bridge.services` for application-level helpers.
 """
 
 from __future__ import annotations

@@ -19,7 +19,7 @@ List the fields of a template without printing anything:
 ```python
 from pathlib import Path
 
-from lbx_printer import LabelTemplateService
+from brother_bridge import LabelTemplateService
 
 service = LabelTemplateService(Path("templates"))
 for template in service.list():
@@ -29,9 +29,9 @@ for template in service.list():
 ## 2. Install for the target platform
 
 ```bash
-pip install lbx-printer                  # parsing and rendering
-pip install "lbx-printer[brother]"       # Linux/macOS raster printing
-pip install "lbx-printer[windows]"       # Windows b-PAC printing
+pip install brother-bridge                  # parsing and rendering
+pip install "brother-bridge[brother]"       # Linux/macOS raster printing
+pip install "brother-bridge[windows]"       # Windows b-PAC printing
 ```
 
 The `brother` extra installs the `brother_ql` version published on PyPI. If the
@@ -41,7 +41,7 @@ unknown-model error at print time or the tape cannot be resolved:
 
 ```bash
 pip install "brother-ql @ git+https://github.com/pklaus/brother_ql.git"
-pip install lbx-printer
+pip install brother-bridge
 ```
 
 **Windows**: install the Brother b-PAC SDK (it ships with the printer software
@@ -59,13 +59,13 @@ backend. The queue must accept PNG input, which the Brother QL drivers do.
 Either pass a `PrinterConfig` explicitly or set environment variables:
 
 ```bash
-export LBX_PRINTER_HOST=192.168.1.50
-export LBX_PRINTER_MODEL=QL-1110NWB
-export LBX_PRINTER_DPI=300
+export BROTHER_BRIDGE_HOST=192.168.1.50
+export BROTHER_BRIDGE_MODEL=QL-1110NWB
+export BROTHER_BRIDGE_DPI=300
 ```
 
 ```python
-from lbx_printer import PrinterConfig
+from brother_bridge import PrinterConfig
 
 config = PrinterConfig.from_env()
 tuned = config.with_overrides(host="192.168.1.60", cut=False)
@@ -79,7 +79,7 @@ Invalid values raise `ConfigurationError` immediately, for example a port outsid
 ```python
 from pathlib import Path
 
-from lbx_printer import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
+from brother_bridge import LabelData, LabelPrinterService, LabelTemplate, PrintRequest
 
 service = LabelPrinterService(Path("templates"))
 request = PrintRequest(
@@ -105,7 +105,7 @@ used, and if that is empty too, the platform default applies.
 ```python
 from pathlib import Path
 
-from lbx_printer import FileBackend, LbxParser, LbxRenderer
+from brother_bridge import FileBackend, LbxParser, LbxRenderer
 
 layout = LbxParser().parse_file(Path("templates/address.lbx"))
 layout.text_objects["title"].set_text("Preview")
@@ -120,7 +120,7 @@ printer, which makes layout problems obvious before any tape is consumed.
 
 | Symptom | Cause | Fix |
 | --- | --- | --- |
-| `MissingDependencyError: brother_ql` | Raster extra not installed | `pip install "lbx-printer[brother]"` |
+| `MissingDependencyError: brother_ql` | Raster extra not installed | `pip install "brother-bridge[brother]"` |
 | `BpacConnectionError` on Windows | b-PAC SDK missing or not registered | Install the Brother printer software and `pywin32` |
 | `UnsupportedLabelError` | Template geometry has no close match in `brother_ql` | Check the tape settings in the template, or pass an explicit `label=` |
 | `LabelFieldNotFoundError` | The field name does not exist in the template | Use `LabelTemplateService(...).get(name).fields` |
@@ -128,14 +128,14 @@ printer, which makes layout problems obvious before any tape is consumed.
 | Text is tiny | Shrink-to-fit reduced the font because the box is small | Enlarge the object in P-touch Editor |
 | Text is clipped | Object has `autoLF=false` and contains no newlines | Enable auto line feed or add newlines to the value |
 | `lp` not found | CUPS client tools missing | Install `cups-client` (Linux) or use the raster backend |
-| Nothing printed but no error | Wrong host or port | Verify `LBX_PRINTER_HOST`, `LBX_PRINTER_PORT` and network access |
+| Nothing printed but no error | Wrong host or port | Verify `BROTHER_BRIDGE_HOST`, `BROTHER_BRIDGE_PORT` and network access |
 
 ## Logging
 
 Logging is silent by default. Enable it for diagnostics:
 
 ```python
-from lbx_printer.logging import configure_logging
+from brother_bridge.logging import configure_logging
 
 configure_logging("DEBUG")
 ```
@@ -146,10 +146,10 @@ identifier, the canvas size and the backend target.
 ## Localisation
 
 Exception messages are available in English and French. Select the locale with
-`LBX_PRINTER_LOCALE=fr` or programmatically:
+`BROTHER_BRIDGE_LOCALE=fr` or programmatically:
 
 ```python
-from lbx_printer.i18n import set_locale
+from brother_bridge.i18n import set_locale
 
 set_locale("fr")
 ```

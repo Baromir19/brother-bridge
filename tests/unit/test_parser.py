@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-from lbx_printer.lbx.model import BarcodeObject, ImageObject, TextObject
-from lbx_printer.lbx.parser import LbxParser
+from brother_bridge.lbx.model import BarcodeObject, ImageObject, TextObject
+from brother_bridge.lbx.parser import LbxParser
 
 from ..conftest import barcode_object, build_xml, image_object, text_object, write_lbx
 

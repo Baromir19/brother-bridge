@@ -32,7 +32,7 @@ Euclidean distance in width and height. Two millimetres absorb rounding errors
 from the point-to-millimetre conversion while still rejecting unrelated sizes.
 """
 
-_MISSING_HINT = "Install the optional dependency: pip install 'lbx-printer[brother]'"
+_MISSING_HINT = "Install the optional dependency: pip install 'brother-bridge[brother]'"
 
 
 def _load_catalogue() -> tuple[Any, Any]:

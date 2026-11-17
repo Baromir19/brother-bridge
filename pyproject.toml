@@ -3,13 +3,13 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "lbx-printer"
+name = "brother-bridge"
 description = "Parse, render and print Brother P-touch (.lbx) label templates on Windows (b-PAC) and Linux/macOS (Brother QL raster, CUPS)."
 readme = "README.md"
 requires-python = ">=3.10"
 dynamic = ["version"]
 license = { text = "GPL-3.0-or-later" }
-authors = [{ name = "lbx-printer contributors" }]
+authors = [{ name = "brother-bridge contributors" }]
 keywords = [
     "brother",
     "label",
@@ -68,10 +68,10 @@ Changelog = "https://github.com/Baromir19/brother/blob/main/CHANGELOG.md"
 Documentation = "https://github.com/Baromir19/brother/blob/main/docs/user-guide.md"
 
 [tool.hatch.version]
-path = "src/lbx_printer/__init__.py"
+path = "src/brother_bridge/__init__.py"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/lbx_printer"]
+packages = ["src/brother_bridge"]
 
 [tool.hatch.build.targets.sdist]
 include = [
@@ -92,14 +92,14 @@ select = ["E", "F", "I", "B", "UP", "SIM", "C4", "RUF"]
 ignore = ["RUF001", "RUF002", "RUF003"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["lbx_printer"]
+known-first-party = ["brother_bridge"]
 
 [tool.mypy]
 python_version = "3.10"
 strict = true
 ignore_missing_imports = true
 warn_unused_ignores = true
-files = ["src/lbx_printer", "tests"]
+files = ["src/brother_bridge", "tests"]
 mypy_path = "src"
 
 [[tool.mypy.overrides]]
@@ -119,7 +119,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["lbx_printer"]
+source = ["brother_bridge"]
 branch = true
 
 [tool.coverage.report]

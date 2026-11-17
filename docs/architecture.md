@@ -2,7 +2,7 @@
 
 ## Goals
 
-`lbx-printer` is a standalone library. It must not depend on an application
+`brother-bridge` is a standalone library. It must not depend on an application
 framework, a database, a web server or a global configuration object. Three
 constraints shaped the design:
 
@@ -131,7 +131,7 @@ Rules:
   at the point of use, never at import time.
 - Backend errors propagate unchanged; the package does not swallow transport or
   ``brother_ql`` failures.
-- Messages are localised via `lbx_printer.i18n`; details stay in attributes.
+- Messages are localised via `brother_bridge.i18n`; details stay in attributes.
 
 ## Thread safety
 
